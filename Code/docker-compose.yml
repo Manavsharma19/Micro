@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  text_reader_service:
+    build: ./text_reader_service
+    ports:
+      - "50051:50051"
+    networks:
+      - mynetwork
+
+  analysis_service:
+    build: ./analysis_service
+    ports:
+      - "50052:50052"
+    networks:
+      - mynetwork
+
+  storage_service:
+    build: ./Storage_service
+    ports:
+      - "50053:50053"
+    networks:
+      - mynetwork
+
+  display_service:
+    build: ./Display_service
+    ports:
+      - "5000:5000"
+      - "50054:50054"
+    networks:
+      - mynetwork
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    networks:
+      - mynetwork      
+
+networks:
+  mynetwork:
+    driver: bridge

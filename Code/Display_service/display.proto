@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package display;
+
+service DisplayService {
+    rpc GetDisplayData(DisplayRequest) returns (DisplayResponse);
+}
+
+message DisplayRequest {}
+
+message DisplayResponse {
+    string message = 1;
+}

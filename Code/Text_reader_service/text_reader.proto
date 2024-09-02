@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package textreader;
+
+service TextReaderService {
+    rpc ReadText(TextReadRequest) returns (TextReadResponse);
+}
+
+message TextReadRequest {}
+
+message TextReadResponse {
+    string text = 1;
+}

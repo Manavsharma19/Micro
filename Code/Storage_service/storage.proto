@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package storage;
+
+service StorageService {
+    rpc GetData(DataRequest) returns (DataResponse);
+    rpc StoreData(DataStorageRequest) returns (DataStorageResponse);
+}
+
+message DataRequest {}
+
+message DataResponse {
+    bool found = 1;
+    string data = 2;
+}
+
+message DataStorageRequest {
+    string data = 1;
+}
+
+message DataStorageResponse {
+    bool success = 1;
+}
